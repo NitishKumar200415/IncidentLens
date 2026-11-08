@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+target/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log
+# large recorded telemetry should not be committed; keep scenario.yaml only
+bundles/**/*.json
+bundles/**/*.jsonl

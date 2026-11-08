@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: incidentlens
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/incidentlens}
+    username: ${DB_USER:incidentlens}
+    password: ${DB_PASSWORD:incidentlens}
+  threads:
+    virtual:
+      enabled: true
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+incidentlens:
+  budget:
+    max-tool-calls: 12
+    max-tokens: 60000
+    max-wall-clock-seconds: 90

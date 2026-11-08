@@ -1,0 +1,20 @@
+# Copy this folder to bundles/<scenario-name>/ and fill it in.
+# Ground truth is the most important part: record the fault-injection time immediately.
+name: example-payment-failure
+source: RECORDED            # RECORDED or SYNTHETIC (label honestly)
+alert_text: "Checkout error rate is elevated"
+baseline_window:
+  start: "2026-11-10T10:00:00Z"
+  end:   "2026-11-10T10:10:00Z"
+incident_window:
+  start: "2026-11-10T10:10:00Z"
+  end:   "2026-11-10T10:20:00Z"
+fault_injected_at: "2026-11-10T10:10:00Z"
+fault_description: "Enabled the paymentServiceFailure feature flag"
+ground_truth:
+  service: payment
+  category: ERROR_SPIKE      # SLOW_DEPENDENCY | ERROR_SPIKE | RESOURCE_SATURATION | CONFIG_OR_DEPLOY_CHANGE | TRAFFIC_SURGE | UNKNOWN
+held_out: false              # keep at least 3 scenarios held out and never tune against them
+telemetry_files:
+  - traces.jsonl
+  - metrics.jsonl
