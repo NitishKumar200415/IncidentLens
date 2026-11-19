@@ -1,0 +1,24 @@
+name: payment-failure-1
+source: RECORDED
+alert_text: "Payment service charge failures are elevated"
+
+baseline_window:
+  start: "2026-11-19T13:47:23Z"
+  end: "2026-11-19T13:57:55Z"
+
+incident_window:
+  start: "2026-11-19T14:06:59Z"
+  end: "2026-11-19T14:17:31Z"
+
+fault_injected_at: "2026-11-19T14:06:59Z"
+fault_description: "Enabled the paymentFailure feature flag with the 100% variant"
+
+ground_truth:
+  service: payment
+  category: ERROR_SPIKE
+
+held_out: false
+
+telemetry_files:
+  - traces.jsonl
+  - metrics.jsonl
