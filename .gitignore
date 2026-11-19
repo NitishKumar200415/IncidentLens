@@ -10,3 +10,4 @@ target/
 # large recorded telemetry should not be committed; keep scenario.yaml only
 bundles/**/*.json
 bundles/**/*.jsonl
+data/telemetry/
