@@ -1,5 +1,7 @@
 scenario_id: payment-unreachable-1
+source: RECORDED
 description: "Payment service is unavailable"
+alert_text: "Payment service is unreachable"
 
 baseline_window:
   start: "2026-11-19T18:48:21Z"

@@ -1,20 +1,28 @@
-# Copy this folder to bundles/<scenario-name>/ and fill it in.
-# Ground truth is the most important part: record the fault-injection time immediately.
-name: example-payment-failure
-source: RECORDED            # RECORDED or SYNTHETIC (label honestly)
-alert_text: "Checkout error rate is elevated"
+# Canonical IncidentLens scenario contract.
+# Copy this folder to bundles/<scenario-id>/ and populate all fields.
+
+scenario_id: example-scenario
+source: RECORDED            # RECORDED or SYNTHETIC
+description: "Brief description of the incident"
+alert_text: "Alert presented to IncidentLens"
+
 baseline_window:
   start: "2026-11-10T10:00:00Z"
-  end:   "2026-11-10T10:10:00Z"
+  end: "2026-11-10T10:10:00Z"
+
 incident_window:
   start: "2026-11-10T10:10:00Z"
-  end:   "2026-11-10T10:20:00Z"
+  end: "2026-11-10T10:20:00Z"
+
 fault_injected_at: "2026-11-10T10:10:00Z"
-fault_description: "Enabled the paymentServiceFailure feature flag"
+fault_description: "Description of the injected fault"
+
 ground_truth:
   service: payment
-  category: ERROR_SPIKE      # SLOW_DEPENDENCY | ERROR_SPIKE | RESOURCE_SATURATION | CONFIG_OR_DEPLOY_CHANGE | TRAFFIC_SURGE | UNKNOWN
-held_out: false              # keep at least 3 scenarios held out and never tune against them
+  category: ERROR_SPIKE
+
+held_out: false
+
 telemetry_files:
   - traces.jsonl
   - metrics.jsonl

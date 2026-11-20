@@ -1,5 +1,6 @@
-name: payment-failure-1
+scenario_id: payment-failure-1
 source: RECORDED
+description: "Payment failures caused by enabling the paymentFailure feature flag"
 alert_text: "Payment service charge failures are elevated"
 
 baseline_window:
