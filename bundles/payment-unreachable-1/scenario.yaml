@@ -1,0 +1,23 @@
+scenario_id: payment-unreachable-1
+description: "Payment service is unavailable"
+
+baseline_window:
+  start: "2026-11-19T18:48:21Z"
+  end: "2026-11-19T18:59:32Z"
+
+incident_window:
+  start: "2026-11-19T19:05:33Z"
+  end: "2026-11-19T19:17:18Z"
+
+fault_injected_at: "2026-11-19T19:05:33Z"
+fault_description: "Enabled the paymentUnreachable feature flag"
+
+ground_truth:
+  service: payment
+  category: SLOW_DEPENDENCY
+
+held_out: false
+
+telemetry_files:
+  - traces.jsonl
+  - metrics.jsonl

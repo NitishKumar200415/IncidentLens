@@ -11,3 +11,4 @@ target/
 bundles/**/*.json
 bundles/**/*.jsonl
 data/telemetry/
+recovery/
